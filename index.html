@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对性理论乐队卡片</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+XiaoWei&display=swap');
+        
+        :root {
+            --primary-dark: #1a237e;  /* 深蓝色 */
+            --primary-light: #534bae;  /* 中蓝色 */
+            --primary-lighter: #8e99f3;  /* 浅蓝色 */
+            --accent: #e91e63;  /* 粉色 */
+            --accent-light: #f48fb1;  /* 浅粉色 */
+            --text-dark: #263238;  /* 深灰色文字 */
+            --text-light: #eceff1;  /* 浅灰色文字 */
+            --background: #f5f5f5;  /* 背景色 */
+            --card-bg: #ffffff;  /* 卡片背景 */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 25px 25px, var(--primary-lighter) 2%, transparent 0%),
+                radial-gradient(circle at 75px 75px, var(--accent-light) 2%, transparent 0%);
+            background-size: 100px 100px;
+            background-attachment: fixed;
+        }
+        
+        .card-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(26, 35, 126, 0.15);
+            position: relative;
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            color: var(--text-light);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.6;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .band-name {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+            letter-spacing: 5px;
+        }
+        
+        .band-name-jp {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .band-subtitle {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .card-body {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-family: 'ZCOOL QingKe HuangYou', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .member-list {
+            list-style: none;
+        }
+        
+        .member-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .member-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .member-role {
+            background-color: var(--primary-lighter);
+            color: var(--text-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(26, 35, 126, 0.2);
+        }
+        
+        .member-name {
+            font-weight: 500;
+        }
+        
+        .member-name-jp {
+            font-size: 0.85rem;
+            color: #78909c;
+            margin-left: 10px;
+        }
+        
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        
+        .album-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .album-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(26, 35, 126, 0.15);
+        }
+        
+        .album-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-lighter), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .album-image::before {
+            content: "";
+            position: absolute;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            top: -20%;
+            left: -20%;
+        }
+        
+        .album-image::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.3)"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+        
+        .album-year-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary-dark);
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            z-index: 2;
+        }
+        
+        .album-info {
+            padding: 18px;
+        }
+        
+        .album-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+        
+        .album-title-jp {
+            font-size: 0.9rem;
+            color: #78909c;
+            margin-bottom: 8px;
+        }
+        
+        .album-description {
+            font-size: 0.85rem;
+            color: #546e7a;
+            line-height: 1.5;
+        }
+        
+        .style-section {
+            grid-column: span 2;
+        }
+        
+        .style-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .style-description {
+            flex: 1;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .style-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+            flex: 0 0 300px;
+        }
+        
+        .style-tag {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            display: inline-block;
+            box-shadow: 0 3px 8px rgba(26, 35, 126, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .style-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(26, 35, 126, 0.3);
+        }
+        
+        .style-tag.accent {
+            background: linear-gradient(135deg, var(--accent), #c2185b);
+        }
+        
+        .songs-section {
+            grid-column: span 2;
+        }
+        
+        .song-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .song-item {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            display: flex;
+            align-items: center;
+        }
+        
+        .song-item:hover {
+            transform: translateX(5px);
+            background-color: #f5f5f5;
+            border-left-color: var(--accent);
+        }
+        
+        .song-number {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-lighter);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .song-info {
+            flex: 1;
+        }
+        
+        .song-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .song-title-jp {
+            margin-left: 8px;
+            font-size: 0.85rem;
+            color: #78909c;
+        }
+        
+        .song-album {
+            font-size: 0.85rem;
+            color: #78909c;
+            display: flex;
+            align-items: center;
+        }
+        
+        .song-album::before {
+            content: "♪";
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        .band-description {
+            grid-column: span 2;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid var(--primary-dark);
+        }
+        
+        .band-description p {
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .band-description p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .band-description::before {
+            content: """;
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            font-size: 10rem;
+            color: rgba(26, 35, 126, 0.05);
+            font-family: serif;
+        }
+        
+        .history-timeline {
+            grid-column: span 2;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-dark), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-dark);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(26, 35, 126, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        .timeline-item:hover::after {
+            background-color: var(--accent);
+        }
+        
+        .timeline-left {
+            left: 0;
+        }
+        
+        .timeline-right {
+            left: 50%;
+        }
+        
+        .timeline-left::after {
+            right: -10px;
+        }
+        
+        .timeline-right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-year::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .timeline-text {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.2)"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-quote {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .decorative-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.05;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            border: 15px solid var(--primary-dark);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            border: 10px solid var(--accent);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -50px;
+        }
+        
+        .featured-songs {
+            grid-column: span 2;
+            margin-top: 20px;
+        }
+        
+        .featured-songs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .featured-song-card {
+            background: linear-gradient(135deg, #f5f5f5, #ffffff);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .featured-song-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(26, 35, 126, 0.15);
+        }
+        
+        .featured-song-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            color: white;
+            padding: 15px 20px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .featured-song-album {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .featured-song-body {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .featured-song-lyrics {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .featured-song-description {
+            font-size: 0.9rem;
+            color: #546e7a;
+            padding-top: 15px;
+            border-top: 1px solid #eeeeee;
+        }
+        
+        .science-element {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .formula-1 {
+            font-family: serif;
+            font-size: 5rem;
+            top: 20px;
+            right: 30px;
+            transform: rotate(15deg);
+        }
+        
+        .formula-2 {
+            font-family: serif;
+            font-size: 4rem;
+            bottom: 30px;
+            left: 40px;
+            transform: rotate(-10deg);
+        }
+        
+        @media (max-width: 900px) {
+            .card-body {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            
+            .style-section, .songs-section, .band-description, .featured-songs {
+                grid-column: span 1;
+            }
+            
+            .style-content {
+                flex-direction: column;
+            }
+            
+            .style-tags {
+                flex: 1;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-left::after, .timeline-right::after {
+                left: 21px;
+            }
+            
+            .timeline-right {
+                left: 0;
+            }
+            
+            .band-name {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .card-body {
+                padding: 20px;
+            }
+            
+            .album-grid, .song-list, .featured-songs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .band-name {
+                font-size: 2.5rem;
+            }
+            
+            .band-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card-header">
+            <div class="header-content">
+                <h1 class="band-name">相对性理论</h1>
+                <div class="band-name-jp">相対性理論 / Soutaiseiriron</div>
+                <div class="band-subtitle">游走于常理之外的电波系乐队，以超现实主义音乐风格与独特声线征服听众</div>
+            </div>
+            <div class="science-element formula-1">E=mc²</div>
+        </div>
+        
+        <div class="card-body">
+            <div class="section band-description">
+                <p>相对性理论是一支来自日本东京的独立乐队，成立于2006年9月。乐队以其独特的电波系音乐风格、充满少女感的歌词以及主唱药师丸悦子极具辨识度的声线而闻名。乐队自称"Youtube影像时代的流行艺术家"，在音乐中融合了同步性原理、文艺复兴、数学、校园等多种元素，创造出一种超越常规的音乐体验。</p>
+                <p>乐队早期保持着神秘形象，除了现场演出外，几乎不在公开媒体露面，专辑封面或宣传影片也不直接拍摄乐团成员面貌。这种神秘主义并未阻碍他们的音乐受到听众的喜爱，其地下时期自录自刻的专辑销量超过4000张，第二张专辑《HIFI新书》发行首日就登上ORICON排行榜第四位。</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">乐队成员</h2>
+                <ul class="member-list">
+                    <li class="member-item">
+                        <span class="member-role">主唱</span>
+                        <span class="member-name">药师丸悦子<span class="member-name-jp">やくしまるえつこ</span></span>
+                    </li>
+                    <li class="member-item">
+                        <span class="member-role">吉他</span>
+                        <span class="member-name">永井圣一<span class="member-name-jp">永井聖一</span></span>
+                    </li>
+                    <li class="member-item">
+                        <span class="member-role">贝斯</span>
+                        <span class="member-name">吉田匡<span class="member-name-jp">吉田匡</span></span>
+                    </li>
+                    <li class="member-item">
+                        <span class="member-role">鼓手</span>
+                        <span class="member-name">itoken</span>
+                    </li>
+                    <li class="member-item">
+                        <span class="member-role">鼓手</span>
+                        <span class="member-name">山口元辉<span class="member-name-jp">山口元輝</span></span>
+                    </li>
+                    <li class="member-item">
+                        <span class="member-role">前贝斯手</span>
+                        <span class="member-name">真部脩一<span class="member-name-jp">真部脩一</span></span>
+                    </li>
+                    <li class="member-item">
+                        <span class="member-role">前鼓手</span>
+                        <span class="member-name">西浦谦助<span class="member-name-jp">西浦謙助</span></span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section style-section">
+                <h2 class="section-title">音乐特色</h2>
+                <div class="style-content">
+                    <div class="style-description">
+                        <p>相对性理论的音乐充满电波感与少女气息，歌词中常出现科学、哲学、校园生活等元素，通过独特的编曲和药师丸悦子慵懒而富有辨识度的声线，创造出一种超现实的音乐体验。乐队的音乐覆盖很多元素，诸如同步性原理、文艺复兴、数学、校园的元素频频在音乐中出现，再配合上充满电波风又带有少女气息的配乐，形成了独树一帜的风格。</p>
+                        <p>歌词中也时常会有一些同音字词的替换和叠字，这些文字游戏十分精妙，为歌曲增添了趣味性。如果说别家乐队的音乐，无论是歌词、编曲还是PV都能够单独拿出来独挡一面，那么相对性理论的音乐则是只有将歌词、编曲、PV甚至是专辑的封面和歌名结合起来才能真正理解作者的意图。</p>
+                    </div>
+                    <div class="style-tags">
+                        <span class="style-tag">J-POP</span>
+                        <span class="style-tag accent">电波系</span>
+                        <span class="style-tag">独立音乐</span>
+                        <span class="style-tag accent">实验性</span>
+                        <span class="style-tag">少女感</span>
+                        <span class="style-tag accent">涩谷系</span>
+                        <span class="style-tag">超现实主义</span>
+                        <span class="style-tag accent">科学元素</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section featured-songs">
+                <h2 class="section-title">代表歌曲赏析</h2>
+                <div class="featured-songs-grid">
+                    <div class="featured-song-card">
+                        <div class="featured-song-header">
+                            地獄先生 (地狱老师)
+                            <span class="featured-song-album">专辑：ハイファイ新書</span>
+                        </div>
+                        <div class="featured-song-body">
+                            <div class="featured-song-lyrics">
+                                "二十五世纪出生的你 被时空警察所追捕<br>
+                                二十二世纪降生的我 看着电视喝着可乐<br>
+                                二十二世纪做梦的我 逃课跑上了大街<br>
+                                悄悄记下了从二十五世纪逃出的你的手机号码"
+                            </div>
+                            <div class="featured-song-description">
+                                这首歌看名字就知道是描写学校生活的，不过并不是讲禽兽老师和叫兽的，而是主人公对学校生活的态度。歌曲以主唱萌萌哒的音质以及搞怪的编曲为特点。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-song-card">
+                        <div class="featured-song-header">
+                            四角革命
+                            <span class="featured-song-album">专辑：ハイファイ新書</span>
+                        </div>
+                        <div class="featured-song-body">
+                            <div class="featured-song-lyrics">
+                                "四角 革 革 革命 的前夜<br>
+                                是漫长而又暧 暧 暧昧的罗曼史<br>
+                                越来越近的开 开 开战前夜<br>
+                                终于驶来 来 来的列车"
+                            </div>
+                            <div class="featured-song-description">
+                                歌词乍看之下完全是随手乱写的几行文字，让人不明所以。然而当你听着这首音乐时，主唱慵懒的嗓音配上歌词后，则是一种全然不同的感觉，让你豁然开朗。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-song-card">
+                        <div class="featured-song-header">
+                            おはようオーパーツ
+                            <span class="featured-song-album">专辑：シフォン主義</span>
+                        </div>
+                        <div class="featured-song-body">
+                            <div class="featured-song-lyrics">
+                                "おはよう　オーパーツ<br>
+                                おはよう　オーパーツ<br>
+                                おはよう　オーパーツ<br>
+                                おはよう　オーパーツ"
+                            </div>
+                            <div class="featured-song-description">
+                                这首歌中永井圣一和悦子的合唱被粉丝评价为"美得不行"。歌曲中重复的"早安，古代文物"充满了电波感，却又异常洗脑，展现了乐队独特的音乐风格。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">代表专辑</h2>
+                <div class="album-grid">
+                    <div class="album-card">
+                        <div class="album-year-badge">2007/2008</div>
+                        <div class="album-image">シフォン主義</div>
+                        <div class="album-info">
+                            <div class="album-title">戚风主义</div>
+                            <div class="album-title-jp">シフォン主義</div>
+                            <div class="album-description">乐队的首张专辑，最初以自录自刻CD-R形式发行，后在2008年正式发行，获得TOWER RECORDS周间独立音乐榜第一名。</div>
+                        </div>
+                    </div>
+                    <div class="album-card">
+                        <div class="album-year-badge">2009</div>
+                        <div class="album-image">ハイファイ新書</div>
+                        <div class="album-info">
+                            <div class="album-title">Hi-Fi新书</div>
+                            <div class="album-title-jp">ハイファイ新書</div>
+                            <div class="album-description">乐队第二张专辑，发行首日就登上ORICON排行榜第四位，收录了《地獄先生》和《四角革命》等代表作。</div>
+                        </div>
+                    </div>
+                    <div class="album-card">
+                        <div class="album-year-badge">2010</div>
+                        <div class="album-image">シンクロニシティーン</div>
+                        <div class="album-info">
+                            <div class="album-title">Syncronicity</div>
+                            <div class="album-title-jp">シンクロニシティーン</div>
+                            <div class="album-description">第三张专辑，获得Oricon周间排行榜第三名、当日排行第二名，收录了《シンデレラ》等热门曲目。</div>
+                        </div>
+                    </div>
+                    <div class="album-card">
+                        <div class="album-year-badge">2011</div>
+                        <div class="album-image">正しい相対性理論</div>
+                        <div class="album-info">
+                            <div class="album-title">正确的相对性理论</div>
+                            <div class="album-title-jp">正しい相対性理論</div>
+                            <div class="album-description">第四张专辑，收录了13首曲目，歌曲名称大多以字母和符号组成，如"Q/P"、"QJPCAM"等，展现了乐队的实验性。</div>
+                        </div>
+                    </div>
+                    <div class="album-card">
+                        <div class="album-year-badge">2013</div>
+                        <div class="album-image">TOWN AGE</div>
+                        <div class="album-info">
+                            <div class="album-title">TOWN AGE</div>
+                            <div class="album-title-jp">TOWN AGE</div>
+                            <div class="album-description">真部脩一和西浦谦助离队后发行的专辑，风格有所变化，但仍保留了乐队的核心特色，收录了《上海an》等作品。</div>
+                        </div>
+                    </div>
+                    <div class="album-card">
+                        <div class="album-year-badge">2016</div>
+                        <div class="album-image">天声ジングル</div>
+                        <div class="album-info">
+                            <div class="album-title">天声Jingle</div>
+                            <div class="album-title-jp">天声ジングル</div>
+                            <div class="album-description">2016年发行的专辑，更加注重节奏的动感，展现了乐队在音乐上的进一步探索与成熟。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section songs-section">
+                <h2 class="section-title">经典曲目</h2>
+                <div class="song-list">
+                    <div class="song-item">
+                        <div class="song-number">1</div>
+                        <div class="song-info">
+                            <div class="song-title">地獄先生<span class="song-title-jp">(地狱老师)</span></div>
+                            <div class="song-album">专辑：ハイファイ新書</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">2</div>
+                        <div class="song-info">
+                            <div class="song-title">四角革命</div>
+                            <div class="song-album">专辑：ハイファイ新書</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">3</div>
+                        <div class="song-info">
+                            <div class="song-title">おはようオーパーツ</div>
+                            <div class="song-album">专辑：シフォン主義</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">4</div>
+                        <div class="song-info">
+                            <div class="song-title">シンデレラ</div>
+                            <div class="song-album">专辑：シンクロニシティーン</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">5</div>
+                        <div class="song-info">
+                            <div class="song-title">ヴィーナスとジーザス</div>
+                            <div class="song-album">动画《荒川爆笑团》OP</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">6</div>
+                        <div class="song-info">
+                            <div class="song-title">上海an</div>
+                            <div class="song-album">专辑：TOWN AGE</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">7</div>
+                        <div class="song-info">
+                            <div class="song-title">YOU & IDOL</div>
+                            <div class="song-album">专辑：TOWN AGE</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">8</div>
+                        <div class="song-info">
+                            <div class="song-title">ルル</div>
+                            <div class="song-album">动画《电波女与青春男》ED</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">9</div>
+                        <div class="song-info">
+                            <div class="song-title">バーモント・キッス</div>
+                            <div class="song-album">专辑：ハイファイ新書</div>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">10</div>
+                        <div class="song-info">
+                            <div class="song-title">神のいうとおり</div>
+                            <div class="song-album">动画《四畳半神话大系》ED</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section history-timeline">
+                <h2 class="section-title">乐队历程</h2>
+                <div class="timeline">
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2006年9月</div>
+                            <div class="timeline-text">相对性理论成立，成员包括药师丸悦子、永井圣一、真部脩一、西浦谦助。乐队自称"Youtube影像时代的流行艺术家"。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2007年6月</div>
+                            <div class="timeline-text">发行独立制作专辑《戚风主义》，仅在LIVE活动和邮寄通路贩售便卖出4000张，展现了乐队在地下音乐圈的影响力。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2008年5月</div>
+                            <div class="timeline-text">《戚风主义》重新整理母盘，再次发行流通日本全国，获得TOWER RECORDS周间独立音乐榜第一名。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2009年1月</div>
+                            <div class="timeline-text">发行第二张专辑《Hi-Fi新书》，获得Oricon周间排行榜第七名，乐队开始受到更广泛的关注。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2009年5月</div>
+                            <div class="timeline-text">《戚风主义》获得日本唱片店员主办的"第一回 CD Shop 大赏"，乐队实力获得业内认可。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2010年4月</div>
+                            <div class="timeline-text">发行第三张专辑《Syncronicity》，获得Oricon周间排行榜第三名、当日排行第二名，商业成绩达到新高峰。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2011年4月</div>
+                            <div class="timeline-text">发行第四张专辑《正确的相对性理论》，获得Oricon周间排行榜第八名，展现了乐队的实验性音乐风格。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2012年6月</div>
+                            <div class="timeline-text">贝斯手真部脩一与鼓手西浦谦助退出乐队，乐队进入新的发展阶段。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2013年7月</div>
+                            <div class="timeline-text">发行第五张专辑《TOWN AGE》，风格有所变化，但仍保留了乐队的核心特色。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2016年4月</div>
+                            <div class="timeline-text">发行专辑《天声ジングル》，展现了乐队在音乐上的进一步探索与成熟。</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2016年7月</div>
+                            <div class="timeline-text">相对性理论首次登上武道馆的舞台，举办"八角形"演唱会，标志着乐队在日本音乐界的重要地位。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="science-element formula-2">E=hf</div>
+            <div class="decorative-element circle-1"></div>
+            <div class="decorative-element circle-2"></div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-quote">"相对性理论就像软体（Software）" — 药师丸悦子</div>
+                <p>游走于常理之外的独立乐队 · 超越时空的音乐体验</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
