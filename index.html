@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>相对性理论乐队卡片</title>
+    <meta name="theme-color" content="#1a237e">
+    <meta name="description" content="相对性理论乐队介绍卡片，展示了乐队成员、专辑、歌曲和历程。">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+XiaoWei&display=swap');
-        
+
         :root {
             --primary-dark: #1a237e;  /* 深蓝色 */
             --primary-light: #534bae;  /* 中蓝色 */
@@ -18,26 +20,26 @@
             --background: #f5f5f5;  /* 背景色 */
             --card-bg: #ffffff;  /* 卡片背景 */
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Noto Sans SC', sans-serif;
             background-color: var(--background);
             color: var(--text-dark);
             line-height: 1.6;
             padding: 20px;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 25px 25px, var(--primary-lighter) 2%, transparent 0%),
                 radial-gradient(circle at 75px 75px, var(--accent-light) 2%, transparent 0%);
             background-size: 100px 100px;
             background-attachment: fixed;
         }
-        
+
         .card-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -47,7 +49,7 @@
             box-shadow: 0 15px 35px rgba(26, 35, 126, 0.15);
             position: relative;
         }
-        
+
         .card-header {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
             color: var(--text-light);
@@ -56,7 +58,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .card-header::before {
             content: "";
             position: absolute;
@@ -68,12 +70,12 @@
             background-size: 100px 100px;
             opacity: 0.6;
         }
-        
+
         .header-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .band-name {
             font-family: 'ZCOOL XiaoWei', serif;
             font-size: 4.5rem;
@@ -82,14 +84,14 @@
             text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
             letter-spacing: 5px;
         }
-        
+
         .band-name-jp {
             font-size: 1.5rem;
             opacity: 0.9;
             margin-bottom: 20px;
             letter-spacing: 2px;
         }
-        
+
         .band-subtitle {
             font-size: 1.1rem;
             max-width: 700px;
@@ -97,18 +99,18 @@
             opacity: 0.9;
             font-weight: 300;
         }
-        
+
         .card-body {
             padding: 40px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
-        
+
         .section {
             margin-bottom: 40px;
         }
-        
+
         .section-title {
             font-family: 'ZCOOL QingKe HuangYou', cursive;
             font-size: 1.8rem;
@@ -120,7 +122,7 @@
             display: flex;
             align-items: center;
         }
-        
+
         .section-title::before {
             content: "";
             display: inline-block;
@@ -130,7 +132,7 @@
             border-radius: 50%;
             margin-right: 12px;
         }
-        
+
         .section-title::after {
             content: "";
             position: absolute;
@@ -140,22 +142,22 @@
             height: 2px;
             background-color: var(--accent);
         }
-        
+
         .member-list {
             list-style: none;
         }
-        
+
         .member-item {
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             transition: transform 0.3s ease;
         }
-        
+
         .member-item:hover {
             transform: translateX(5px);
         }
-        
+
         .member-role {
             background-color: var(--primary-lighter);
             color: var(--text-light);
@@ -167,23 +169,23 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(26, 35, 126, 0.2);
         }
-        
+
         .member-name {
             font-weight: 500;
         }
-        
+
         .member-name-jp {
             font-size: 0.85rem;
             color: #78909c;
             margin-left: 10px;
         }
-        
+
         .album-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 25px;
         }
-        
+
         .album-card {
             background-color: #f9f9f9;
             border-radius: 10px;
@@ -192,12 +194,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
-        
+
         .album-card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 12px 25px rgba(26, 35, 126, 0.15);
         }
-        
+
         .album-image {
             height: 200px;
             background: linear-gradient(135deg, var(--primary-lighter), var(--accent-light));
@@ -211,7 +213,7 @@
             overflow: hidden;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
-        
+
         .album-image::before {
             content: "";
             position: absolute;
@@ -221,7 +223,7 @@
             top: -20%;
             left: -20%;
         }
-        
+
         .album-image::after {
             content: "";
             position: absolute;
@@ -231,7 +233,7 @@
             background-size: 20px 20px;
             opacity: 0.5;
         }
-        
+
         .album-year-badge {
             position: absolute;
             top: 10px;
@@ -243,46 +245,46 @@
             border-radius: 12px;
             z-index: 2;
         }
-        
+
         .album-info {
             padding: 18px;
         }
-        
+
         .album-title {
             font-weight: 700;
             margin-bottom: 5px;
             font-size: 1.1rem;
             color: var(--primary-dark);
         }
-        
+
         .album-title-jp {
             font-size: 0.9rem;
             color: #78909c;
             margin-bottom: 8px;
         }
-        
+
         .album-description {
             font-size: 0.85rem;
             color: #546e7a;
             line-height: 1.5;
         }
-        
+
         .style-section {
             grid-column: span 2;
         }
-        
+
         .style-content {
             display: flex;
             gap: 30px;
             align-items: flex-start;
         }
-        
+
         .style-description {
             flex: 1;
             font-size: 1.05rem;
             line-height: 1.8;
         }
-        
+
         .style-tags {
             display: flex;
             flex-wrap: wrap;
@@ -290,7 +292,7 @@
             margin-top: 20px;
             flex: 0 0 300px;
         }
-        
+
         .style-tag {
             background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
             color: white;
@@ -301,26 +303,26 @@
             box-shadow: 0 3px 8px rgba(26, 35, 126, 0.2);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
+
         .style-tag:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 12px rgba(26, 35, 126, 0.3);
         }
-        
+
         .style-tag.accent {
             background: linear-gradient(135deg, var(--accent), #c2185b);
         }
-        
+
         .songs-section {
             grid-column: span 2;
         }
-        
+
         .song-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-        
+
         .song-item {
             background-color: #f9f9f9;
             padding: 15px 20px;
@@ -331,13 +333,13 @@
             display: flex;
             align-items: center;
         }
-        
+
         .song-item:hover {
             transform: translateX(5px);
             background-color: #f5f5f5;
             border-left-color: var(--accent);
         }
-        
+
         .song-number {
             width: 30px;
             height: 30px;
@@ -351,11 +353,11 @@
             margin-right: 15px;
             flex-shrink: 0;
         }
-        
+
         .song-info {
             flex: 1;
         }
-        
+
         .song-title {
             font-weight: 500;
             margin-bottom: 5px;
@@ -363,26 +365,26 @@
             display: flex;
             align-items: center;
         }
-        
+
         .song-title-jp {
             margin-left: 8px;
             font-size: 0.85rem;
             color: #78909c;
         }
-        
+
         .song-album {
             font-size: 0.85rem;
             color: #78909c;
             display: flex;
             align-items: center;
         }
-        
+
         .song-album::before {
             content: "♪";
             margin-right: 5px;
             color: var(--accent);
         }
-        
+
         .band-description {
             grid-column: span 2;
             font-size: 1.1rem;
@@ -395,17 +397,17 @@
             overflow: hidden;
             border-left: 5px solid var(--primary-dark);
         }
-        
+
         .band-description p {
             margin-bottom: 15px;
             position: relative;
             z-index: 2;
         }
-        
+
         .band-description p:last-child {
             margin-bottom: 0;
         }
-        
+
         .band-description::before {
             content: """;
             position: absolute;
@@ -415,19 +417,19 @@
             color: rgba(26, 35, 126, 0.05);
             font-family: serif;
         }
-        
+
         .history-timeline {
             grid-column: span 2;
             margin-top: 20px;
             position: relative;
         }
-        
+
         .timeline {
             position: relative;
             max-width: 100%;
             margin: 0 auto;
         }
-        
+
         .timeline::after {
             content: '';
             position: absolute;
@@ -439,14 +441,14 @@
             margin-left: -3px;
             border-radius: 3px;
         }
-        
+
         .timeline-item {
             padding: 10px 40px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
         }
-        
+
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -460,27 +462,27 @@
             box-shadow: 0 0 0 4px rgba(26, 35, 126, 0.1);
             transition: background-color 0.3s ease;
         }
-        
+
         .timeline-item:hover::after {
             background-color: var(--accent);
         }
-        
+
         .timeline-left {
             left: 0;
         }
-        
+
         .timeline-right {
             left: 50%;
         }
-        
+
         .timeline-left::after {
             right: -10px;
         }
-        
+
         .timeline-right::after {
             left: -10px;
         }
-        
+
         .timeline-content {
             padding: 20px;
             background-color: white;
@@ -488,12 +490,12 @@
             box-shadow: 0 3px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .timeline-item:hover .timeline-content {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
-        
+
         .timeline-year {
             font-weight: 700;
             color: var(--primary-dark);
@@ -502,7 +504,7 @@
             display: flex;
             align-items: center;
         }
-        
+
         .timeline-year::before {
             content: "";
             display: inline-block;
@@ -512,13 +514,13 @@
             border-radius: 50%;
             margin-right: 10px;
         }
-        
+
         .timeline-text {
             font-size: 0.95rem;
             color: var(--text-dark);
             line-height: 1.6;
         }
-        
+
         .footer {
             text-align: center;
             padding: 30px;
@@ -528,7 +530,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .footer::before {
             content: "";
             position: absolute;
@@ -540,23 +542,23 @@
             background-size: 20px 20px;
             opacity: 0.3;
         }
-        
+
         .footer-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .footer-quote {
             font-style: italic;
             margin-bottom: 10px;
         }
-        
+
         .decorative-element {
             position: absolute;
             z-index: 1;
             opacity: 0.05;
         }
-        
+
         .circle-1 {
             width: 300px;
             height: 300px;
@@ -565,7 +567,7 @@
             top: -150px;
             right: -100px;
         }
-        
+
         .circle-2 {
             width: 200px;
             height: 200px;
@@ -574,18 +576,18 @@
             bottom: -100px;
             left: -50px;
         }
-        
+
         .featured-songs {
             grid-column: span 2;
             margin-top: 20px;
         }
-        
+
         .featured-songs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
         }
-        
+
         .featured-song-card {
             background: linear-gradient(135deg, #f5f5f5, #ffffff);
             border-radius: 12px;
@@ -595,12 +597,12 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .featured-song-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 30px rgba(26, 35, 126, 0.15);
         }
-        
+
         .featured-song-header {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
             color: white;
@@ -611,17 +613,17 @@
             align-items: center;
             justify-content: space-between;
         }
-        
+
         .featured-song-album {
             font-size: 0.8rem;
             opacity: 0.8;
         }
-        
+
         .featured-song-body {
             padding: 20px;
             flex: 1;
         }
-        
+
         .featured-song-lyrics {
             font-size: 0.95rem;
             line-height: 1.8;
@@ -629,20 +631,20 @@
             margin-bottom: 15px;
             font-style: italic;
         }
-        
+
         .featured-song-description {
             font-size: 0.9rem;
             color: #546e7a;
             padding-top: 15px;
             border-top: 1px solid #eeeeee;
         }
-        
+
         .science-element {
             position: absolute;
             opacity: 0.05;
             z-index: 0;
         }
-        
+
         .formula-1 {
             font-family: serif;
             font-size: 5rem;
@@ -650,7 +652,7 @@
             right: 30px;
             transform: rotate(15deg);
         }
-        
+
         .formula-2 {
             font-family: serif;
             font-size: 4rem;
@@ -658,68 +660,456 @@
             left: 40px;
             transform: rotate(-10deg);
         }
-        
+
+        /* 平板设备优化 */
         @media (max-width: 900px) {
             .card-body {
                 grid-template-columns: 1fr;
-                padding: 30px;
+                padding: 30px 25px;
             }
-            
+
             .style-section, .songs-section, .band-description, .featured-songs {
                 grid-column: span 1;
             }
-            
+
             .style-content {
                 flex-direction: column;
             }
-            
+
             .style-tags {
                 flex: 1;
+                margin-top: 15px;
             }
-            
+
             .timeline::after {
                 left: 31px;
             }
-            
+
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-            
+
             .timeline-left::after, .timeline-right::after {
                 left: 21px;
             }
-            
+
             .timeline-right {
                 left: 0;
             }
-            
+
             .band-name {
                 font-size: 3rem;
             }
-        }
-        
-        @media (max-width: 600px) {
-            .card-body {
-                padding: 20px;
+
+            .card-header {
+                padding: 30px 20px;
             }
-            
+
+            .section {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* 手机设备优化 */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .card-container {
+                border-radius: 8px;
+            }
+
+            .card-body {
+                padding: 20px 15px;
+            }
+
             .album-grid, .song-list, .featured-songs-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-            
+
             .band-name {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                letter-spacing: 2px;
             }
-            
+
+            .band-name-jp {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+
             .band-subtitle {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .band-description {
+                padding: 20px;
                 font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .member-item {
+                margin-bottom: 12px;
+            }
+
+            .member-role {
+                min-width: 70px;
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+
+            .member-name-jp {
+                display: block;
+                margin-left: 0;
+                margin-top: 2px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+                padding-right: 15px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .timeline-year {
+                font-size: 1rem;
+            }
+
+            .timeline-text {
+                font-size: 0.9rem;
+            }
+
+            .featured-song-header {
+                padding: 12px 15px;
+                font-size: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .featured-song-album {
+                margin-top: 5px;
+            }
+
+            .featured-song-body {
+                padding: 15px;
+            }
+
+            .featured-song-lyrics {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .footer {
+                padding: 25px 15px;
+            }
+
+            /* 触摸优化 */
+            .song-item, .member-item, .album-card, .featured-song-card, .style-tag {
+                transition: transform 0.2s ease;
+            }
+
+            .song-item:active, .member-item:active, .album-card:active, .featured-song-card:active, .style-tag:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* 移动导航菜单 */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-dark);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            padding: 10px 0;
+        }
+
+        .mobile-nav-list {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mobile-nav-item {
+            text-align: center;
+        }
+
+        .mobile-nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .mobile-nav-icon {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-dark);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+
+        /* 小型手机设备优化 */
+        @media (max-width: 400px) {
+            .band-name {
+                font-size: 1.8rem;
+            }
+
+            .band-name-jp {
+                font-size: 1rem;
+            }
+
+            .card-header {
+                padding: 25px 15px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .song-number {
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+            }
+
+            .song-title {
+                font-size: 0.95rem;
+            }
+
+            .song-album {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* 页面加载动画 */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .loader-circle::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: white;
+            border-bottom-color: var(--accent);
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-circle::after {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-left-color: var(--accent-light);
+            border-right-color: white;
+            animation: spin 2s linear infinite reverse;
+        }
+
+        .loader-icon {
+            font-size: 40px;
+            color: white;
+            z-index: 2;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .loader-text {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 24px;
+            color: white;
+            margin-top: 20px;
+            letter-spacing: 4px;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .loader-subtext {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 10px;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .loader-formula {
+            position: absolute;
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: serif;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: fadeIn 2s ease forwards;
+            opacity: 0;
+        }
+
+        .loader-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            from { transform: scale(0.9); opacity: 0.8; }
+            to { transform: scale(1.1); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* 显示移动导航 */
+        @media (max-width: 900px) {
+            .mobile-nav, .back-to-top {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px; /* 为底部导航留出空间 */
+            }
+
+            /* 增强触摸反馈 */
+            .song-item:active, .member-item:active, .album-card:active,
+            .featured-song-card:active, .style-tag:active,
+            .mobile-nav-link:active, .back-to-top:active {
+                background-color: rgba(0, 0, 0, 0.05);
             }
         }
     </style>
 </head>
 <body>
+    <!-- 页面加载动画 -->
+    <div class="page-loader">
+        <div class="loader-particles" id="particles"></div>
+        <div class="loader-formula">E=mc²</div>
+        <div class="loader-container">
+            <div class="loader-circle">
+                <div class="loader-icon">🎸</div>
+            </div>
+            <div class="loader-text">相对性理论</div>
+            <div class="loader-subtext">Soutaiseiriron ・ 相対性理論</div>
+        </div>
+    </div>
+
     <div class="card-container">
         <div class="card-header">
             <div class="header-content">
@@ -729,13 +1119,13 @@
             </div>
             <div class="science-element formula-1">E=mc²</div>
         </div>
-        
+
         <div class="card-body">
             <div class="section band-description">
                 <p>相对性理论是一支来自日本东京的独立乐队，成立于2006年9月。乐队以其独特的电波系音乐风格、充满少女感的歌词以及主唱药师丸悦子极具辨识度的声线而闻名。乐队自称"Youtube影像时代的流行艺术家"，在音乐中融合了同步性原理、文艺复兴、数学、校园等多种元素，创造出一种超越常规的音乐体验。</p>
                 <p>乐队早期保持着神秘形象，除了现场演出外，几乎不在公开媒体露面，专辑封面或宣传影片也不直接拍摄乐团成员面貌。这种神秘主义并未阻碍他们的音乐受到听众的喜爱，其地下时期自录自刻的专辑销量超过4000张，第二张专辑《HIFI新书》发行首日就登上ORICON排行榜第四位。</p>
             </div>
-            
+
             <div class="section">
                 <h2 class="section-title">乐队成员</h2>
                 <ul class="member-list">
@@ -753,10 +1143,6 @@
                     </li>
                     <li class="member-item">
                         <span class="member-role">鼓手</span>
-                        <span class="member-name">itoken</span>
-                    </li>
-                    <li class="member-item">
-                        <span class="member-role">鼓手</span>
                         <span class="member-name">山口元辉<span class="member-name-jp">山口元輝</span></span>
                     </li>
                     <li class="member-item">
@@ -769,7 +1155,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <div class="section style-section">
                 <h2 class="section-title">音乐特色</h2>
                 <div class="style-content">
@@ -789,7 +1175,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="section featured-songs">
                 <h2 class="section-title">代表歌曲赏析</h2>
                 <div class="featured-songs-grid">
@@ -846,7 +1232,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="section">
                 <h2 class="section-title">代表专辑</h2>
                 <div class="album-grid">
@@ -906,7 +1292,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="section songs-section">
                 <h2 class="section-title">经典曲目</h2>
                 <div class="song-list">
@@ -982,7 +1368,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="section history-timeline">
                 <h2 class="section-title">乐队历程</h2>
                 <div class="timeline">
@@ -1054,12 +1440,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="science-element formula-2">E=hf</div>
             <div class="decorative-element circle-1"></div>
             <div class="decorative-element circle-2"></div>
         </div>
-        
+
         <div class="footer">
             <div class="footer-content">
                 <div class="footer-quote">"相对性理论就像软体（Software）" — 药师丸悦子</div>
@@ -1067,5 +1453,164 @@
             </div>
         </div>
     </div>
+
+    <!-- 移动导航菜单 -->
+    <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="#band-info" class="mobile-nav-link">
+                    <span class="mobile-nav-icon">🎸</span>
+                    乐队介绍
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#members" class="mobile-nav-link">
+                    <span class="mobile-nav-icon">👤</span>
+                    成员
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#albums" class="mobile-nav-link">
+                    <span class="mobile-nav-icon">💿</span>
+                    专辑
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#songs" class="mobile-nav-link">
+                    <span class="mobile-nav-icon">🎵</span>
+                    歌曲
+                </a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#history" class="mobile-nav-link">
+                    <span class="mobile-nav-icon">📅</span>
+                    历程
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 返回顶部按钮 -->
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // 添加ID以便于导航
+        document.addEventListener('DOMContentLoaded', function() {
+            // 创建粒子效果
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 30;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+
+                    // 随机位置和大小
+                    const size = Math.random() * 4 + 2;
+                    const left = Math.random() * 100;
+                    const delay = Math.random() * 10;
+                    const duration = Math.random() * 10 + 10;
+
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${left}%`;
+                    particle.style.animationDelay = `${delay}s`;
+                    particle.style.animationDuration = `${duration}s`;
+
+                    // 随机透明度
+                    particle.style.opacity = Math.random() * 0.5 + 0.3;
+
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // 创建粒子
+            createParticles();
+
+            // 页面加载完成后隐藏加载动画
+            setTimeout(function() {
+                document.querySelector('.page-loader').classList.add('loaded');
+            }, 2000); // 增加时间以显示完整动画
+
+            // 添加ID
+            document.querySelector('.band-description').id = 'band-info';
+            document.querySelector('.member-list').parentElement.id = 'members';
+            document.querySelector('.album-grid').parentElement.id = 'albums';
+            document.querySelector('.song-list').parentElement.id = 'songs';
+            document.querySelector('.history-timeline').id = 'history';
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    if(this.getAttribute('href') === '#') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if(targetElement) {
+                        const headerOffset = 20;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 滚动时显示/隐藏返回顶部按钮
+            window.addEventListener('scroll', function() {
+                const backToTop = document.querySelector('.back-to-top');
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'block';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+
+            // 实现图片懒加载
+            const lazyLoadImages = function() {
+                // 将所有图片添加loading="lazy"属性
+                const images = document.querySelectorAll('.album-image, .member-image');
+                images.forEach(img => {
+                    if (img.tagName === 'IMG' && !img.hasAttribute('loading')) {
+                        img.setAttribute('loading', 'lazy');
+                    }
+                });
+
+                // 对于不支持原生懒加载的浏览器，实现自定义懒加载
+                if (!('loading' in HTMLImageElement.prototype)) {
+                    const lazyImages = document.querySelectorAll('img[data-src]');
+
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const image = entry.target;
+                                image.src = image.dataset.src;
+                                observer.unobserve(image);
+                            }
+                        });
+                    });
+
+                    lazyImages.forEach(image => {
+                        imageObserver.observe(image);
+                    });
+                }
+            };
+
+            // 调用懒加载函数
+            lazyLoadImages();
+        });
+    </script>
 </body>
 </html>
